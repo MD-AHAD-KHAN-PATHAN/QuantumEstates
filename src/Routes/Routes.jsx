@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Error from "../Pages/Error/Error";
 import MainLayout from "../MainLayout/MainLayout";
 import Home from "../Pages/Home/Home/Home";
+import AddProperty from "../Pages/AddProperty/AddProperty";
 
 
 const Routes = createBrowserRouter([
@@ -25,6 +26,7 @@ const Routes = createBrowserRouter([
             },
             {
                 path: '/addProperty',
+                element: <AddProperty></AddProperty>
             }
         ]
     }
