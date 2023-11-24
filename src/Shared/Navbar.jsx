@@ -1,10 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
-import Swal from "sweetalert2";
-
+import useAuth from "../Hooks/useAuth";
+import { BiLogInCircle } from "react-icons/bi";
 
 const Navbar = () => {
 
-    const user = true;
+    const {user, logoutUser} = useAuth();
     
 
     const navLink = <>
@@ -46,18 +46,18 @@ const Navbar = () => {
                             </label>
                             <ul tabIndex={0} className="menu dropdown-content mt-3 z-[2] p-2 shadow bg-base-100 rounded-box w-52">
                                 <li>
-                                    <button className="btn btn-ghost">{user.displayName}</button>
+                                    <button className="btn btn-ghost">{user?.displayName}</button>
 
                                 </li>
                                 <li>
-                                    <Link to='/'><button className="btn btn-ghost">Logout</button></Link>
+                                    <Link to='/'><button onClick={logoutUser} className="btn btn-ghost">Logout</button></Link>
                                 </li>
                             </ul>
                         </div>
                             :
 
                             <Link to='/login'>
-                                <button className="btn btn-ghost text-lime-600 border-2 border-lime-500 hover:text-white hover:bg-text-lime-600">Sign In</button>
+                                <button className="btn btn-ghost text-lime-600 border-2 border-lime-500 font-bold hover:text-white hover:bg-text-lime-600"> <BiLogInCircle/> Sign In</button>
                             </Link>
                     }
                 </div>
