@@ -1,4 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
+import Swal from "sweetalert2";
+
 
 const Navbar = () => {
 
@@ -53,6 +55,7 @@ const Navbar = () => {
                             </ul>
                         </div>
                             :
+
                             <Link to='/login'>
                                 <button className="btn btn-ghost text-lime-600 border-2 border-lime-500 hover:text-white hover:bg-text-lime-600">Sign In</button>
                             </Link>

@@ -4,6 +4,8 @@ import Error from "../Pages/Error/Error";
 import MainLayout from "../MainLayout/MainLayout";
 import Home from "../Pages/Home/Home/Home";
 import AddProperty from "../Pages/AddProperty/AddProperty";
+import Login from "../Pages/Authentication/Login/Login";
+import Registration from "../Pages/Authentication/Registration/Registration";
 
 
 const Routes = createBrowserRouter([
@@ -18,11 +20,11 @@ const Routes = createBrowserRouter([
             },
             {
                 path: '/registration',
-                
+                element: <Registration></Registration>
             },
             {
                 path: '/login',
-                
+                element: <Login></Login>
             },
             {
                 path: '/addProperty',
