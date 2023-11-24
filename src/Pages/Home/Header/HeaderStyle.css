@@ -1,0 +1,7 @@
+.gradient-background {
+    background: linear-gradient(to right, #49c74d, #be1717);
+    background-image: url("https://i.ibb.co/XLnXpJc/sean-pollock-Ph-Yq704ffd-A-unsplash.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
