@@ -1,7 +1,9 @@
 import { useForm } from "react-hook-form";
+import useAuth from "../../Hooks/useAuth";
 
 const AddProperty = () => {
 
+    const {user} = useAuth();
 
     const {
         register,
@@ -9,8 +11,8 @@ const AddProperty = () => {
         formState: { errors },
     } = useForm({
         defaultValues: {
-            email: 'ahad@gmail.com',
-            name: 'ahad'
+            email: `${user?.email}`,
+            name: `${user?.displayName}`
         },
     })
 

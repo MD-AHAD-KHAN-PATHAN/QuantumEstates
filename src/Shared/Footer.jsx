@@ -2,16 +2,16 @@ import { AiFillFacebook, AiFillInstagram, AiFillLinkedin, AiFillTwitterSquare } 
 
 const Footer = () => {
     return (
-        <footer className="footer p-10 bg-base-200 text-base-content">
+        <footer className="footer p-10 bg-lime-800 text-lime-100 font-semibold">
             <aside>
-                <img className="w-20" src="https://i.ibb.co/phvWTDq/Logo.png" alt="" />
-                <p>Job Zenith Ltd.<br />Providing reliable service since 2015</p>
+                <img className="w-20" src="https://i.ibb.co/phvWTDq/Logo.png" alt="company logo" />
+                <p>Quantum Estates Ltd.<br />Providing reliable service since 2017</p>
             </aside>
             <nav>
                 <header className="footer-title">Services</header>
-                <a className="link link-hover">Job Listings</a>
-                <a className="link link-hover">Application Tracking</a>
-                <a className="link link-hover">Industry-specific Job Portals</a>
+                <a className="link link-hover">Property Listings</a>
+                <a className="link link-hover">Property Details</a>
+                <a className="link link-hover">Security Features</a>
                 <a className="link link-hover">Premium Services</a>
             </nav>
             <nav>
@@ -23,10 +23,10 @@ const Footer = () => {
             <nav>
                 <header className="footer-title">Social</header>
                 <div className="grid grid-flow-col gap-4">
-                    <a className='text-4xl text-teal-700' href="https://www.facebook.com/"><AiFillFacebook></AiFillFacebook></a>
-                    <a className='text-4xl text-teal-700' href="https://www.instagram.com/"><AiFillInstagram></AiFillInstagram></a>
-                    <a className='text-4xl text-teal-700' href="https://www.linkedin.com/"><AiFillLinkedin></AiFillLinkedin></a>
-                    <a className='text-4xl text-teal-700' href="https://twitter.com/"><AiFillTwitterSquare></AiFillTwitterSquare></a>
+                    <a className='text-4xl text-lime-100' href="https://www.facebook.com/"><AiFillFacebook></AiFillFacebook></a>
+                    <a className='text-4xl text-lime-100' href="https://www.instagram.com/"><AiFillInstagram></AiFillInstagram></a>
+                    <a className='text-4xl text-lime-100' href="https://www.linkedin.com/"><AiFillLinkedin></AiFillLinkedin></a>
+                    <a className='text-4xl text-lime-100' href="https://twitter.com/"><AiFillTwitterSquare></AiFillTwitterSquare></a>
                 </div>
             </nav>
         </footer>

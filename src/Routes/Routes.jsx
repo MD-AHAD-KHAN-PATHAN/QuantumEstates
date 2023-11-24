@@ -6,6 +6,7 @@ import Home from "../Pages/Home/Home/Home";
 import AddProperty from "../Pages/AddProperty/AddProperty";
 import Login from "../Pages/Authentication/Login/Login";
 import Registration from "../Pages/Authentication/Registration/Registration";
+import PrivateRoute from "./PrivateRoute";
 
 
 const Routes = createBrowserRouter([
@@ -28,7 +29,7 @@ const Routes = createBrowserRouter([
             },
             {
                 path: '/addProperty',
-                element: <AddProperty></AddProperty>
+                element: <PrivateRoute><AddProperty></AddProperty></PrivateRoute>
             }
         ]
     }
