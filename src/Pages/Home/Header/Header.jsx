@@ -31,10 +31,10 @@ const Header = () => {
             >
                 <SwiperSlide>
                     <div className="bg-gradient-to-r from-lime-900 bg-no-repeat bg-cover bg-center" style={{ backgroundImage: 'url("https://i.ibb.co/XLnXpJc/sean-pollock-Ph-Yq704ffd-A-unsplash.jpg")' }}>
-                        <div className="md:flex items-center justify-center min-h-screen">
+                        <div className="flex items-center justify-center min-h-screen">
                             <div className="max-w-5xl">
                                 <h1 className="md:text-5xl text-3xl text-center font-bold text-white">Your <span className='text-lime-500'>Premier Destination</span>  for Real Estate</h1>
-                                <p className="my-4 max-w-lg text-justify text-lg font-bold text-white">Discover a world of opportunities with our QuantumEstates platform. Explore a wide range of properties in prime locations. Your perfect home awaits.</p>
+                                <p className="my-4 max-w-lg mx-auto text-center md:text-lg md:font-bold font-semibold text-white">Discover a world of opportunities with our QuantumEstates platform. Explore a wide range of properties in prime locations. Your perfect home awaits.</p>
                                 <div></div>
                             </div>
 
@@ -43,10 +43,10 @@ const Header = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="bg-gradient-to-r from-lime-900 bg-no-repeat bg-cover bg-center" style={{ backgroundImage: 'url("https://i.ibb.co/GH16MTm/r-architecture-2g-Dwl-Iim3-Uw-unsplash.jpg")' }}>
-                        <div className="md:flex items-center justify-center min-h-screen">
+                        <div className="flex items-center justify-center min-h-screen">
                             <div className="max-w-5xl">
                                 <h1 className="md:text-5xl text-3xl text-center font-bold text-white">Find Your <span className='text-lime-500'>Dream Home</span> with Us</h1>
-                                <p className="my-4 max-w-lg text-justify text-lg font-bold text-white">Buy your dream home property with confidence. We're here to guide you every step of the way.</p>
+                                <p className="my-4 max-w-lg mx-auto text-center md:text-lg md:font-bold font-semibold text-white">Buy your dream home property with confidence. We're here to guide you every step of the way.</p>
                                 <div></div>
                             </div>
 
@@ -55,10 +55,10 @@ const Header = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="bg-gradient-to-r from-lime-900 bg-no-repeat bg-cover bg-center" style={{ backgroundImage: 'url("https://i.ibb.co/YdHT140/robert-bock-c-V4qkkor-DFY-unsplash.jpg")' }}>
-                        <div className="md:flex items-center justify-center min-h-screen">
+                        <div className="flex items-center justify-center min-h-screen">
                             <div className="max-w-5xl">
                                 <h1 className="md:text-5xl text-3xl text-center font-bold text-white">Sell Your <span className='text-lime-500'>Property with</span>  Confidence</h1>
-                                <p className="my-4 max-w-lg text-justify text-lg font-bold text-white">List your property with us and reach a wide audience. Our experienced team is here to help you throughout the selling process.</p>
+                                <p className="my-4 max-w-lg mx-auto text-center md:text-lg md:font-bold font-semibold text-white">List your property with us and reach a wide audience. Our experienced team is here to help you throughout the selling process.</p>
                                 <div></div>
                             </div>
 
