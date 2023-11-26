@@ -10,8 +10,10 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
 
     
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+
+    // console.log(user);
 
     const axiosPublic = useAxiosPublic();
 
@@ -52,17 +54,26 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
+            console.log(currentUser);
             setLoading(false);
-            // if (currentUser) {
-            //     const userInfo = { email: currentUser.email }
-            //     axiosPublic.post('/jwt', userInfo)
-            //         .then(res => {
-            //             if (res.data.token) {
-            //                 localStorage.setItem('access-token', res.data.token);
-            //                 setLoading(false);
-            //             }
-            //         })
-            // }
+            if (currentUser) {
+                const userInfo = { 
+                    email: currentUser?.email,
+                    name: currentUser?.displayName,
+                    photo: currentUser?.photoURL,
+                    admin: false,
+                    agent: false,
+                    fraud: false,
+                }
+                axiosPublic.post('/users', userInfo)
+                    .then(res => {
+                        if (res.data) {
+                            console.log(res.data);
+                            // localStorage.setItem('access-token', res.data.token);
+                            // setLoading(false);
+                        }
+                    })
+            }
             // else {
             //     localStorage.removeItem('access-token');
             //     setLoading(false);
@@ -72,7 +83,7 @@ const AuthProvider = ({ children }) => {
         return () => {
             unSubscribe();
         }
-    }, [])
+    }, [axiosPublic])
 
     const authInfo = { user, loading, createUser, signInUser, googleLogin, logoutUser, updateUserProfile }
 

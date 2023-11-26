@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import useAuth from "../../Hooks/useAuth";
+import useAuth from "../../../../Hooks/useAuth";
 
 const AddProperty = () => {
 

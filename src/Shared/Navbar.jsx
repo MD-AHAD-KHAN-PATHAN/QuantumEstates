@@ -5,13 +5,24 @@ import { BiLogInCircle } from "react-icons/bi";
 const Navbar = () => {
 
     const {user, logoutUser} = useAuth();
+
+    const isAdmin = true;
+    const isAgent = false;
     
 
     const navLink = <>
         <li><NavLink to='/' className={"font-bold text-lime-600"}>Home</NavLink></li>
         <li><NavLink to='/allproperties' className={"font-bold text-lime-600"}>All properties</NavLink></li>
-        <li><NavLink to='/dashboard' className={"font-bold text-lime-600"}>Dashboard</NavLink></li>
-        <li><NavLink to='/addProperty' className={"font-bold text-lime-600"}>Add Property</NavLink></li>
+
+        {
+            user && isAdmin && <li><NavLink to='/dashboard/adminProfile' className={"font-bold text-lime-600"}>Dashboard</NavLink></li>
+        }
+        {
+            user && isAgent && <li><NavLink to='/dashboard/agentProfile' className={"font-bold text-lime-600"}>Dashboard</NavLink></li>
+        }
+        {
+            user && !isAdmin && !isAgent && <li><NavLink to='/dashboard/userProfile' className={"font-bold text-lime-600"}>Dashboard</NavLink></li>
+        }
        
     </>
 
