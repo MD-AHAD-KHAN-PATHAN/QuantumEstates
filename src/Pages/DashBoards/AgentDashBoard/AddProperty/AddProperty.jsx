@@ -1,13 +1,22 @@
 import { useForm } from "react-hook-form";
 import useAuth from "../../../../Hooks/useAuth";
+import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
+import useAllUsers from "../../../../Hooks/useAllUsers";
+import Swal from "sweetalert2";
 
+const img_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
+const img_hosting_api = `https://api.imgbb.com/1/upload?key=${img_hosting_key}`;
 const AddProperty = () => {
 
-    const {user} = useAuth();
+    const { user } = useAuth();
+    const axiosPublic = useAxiosPublic();
+
+    const [, refetch] = useAllUsers();
 
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors },
     } = useForm({
         defaultValues: {
@@ -16,13 +25,36 @@ const AddProperty = () => {
         },
     })
 
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
 
         data.verify = 'pending';
         data.advertise = false;
 
+        // Image hosting imageBB
+        const profileImage = { image: data.image[0] };
+        const res = await axiosPublic.post(img_hosting_api, profileImage, {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        });
 
-        console.log(data);
+
+        data.image = res.data.data.display_url;
+
+        axiosPublic.post('/property', data)
+            .then(res => {
+                console.log(res.data);
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        icon: "success",
+                        title: `Successfully added your property`,
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                    reset();
+                    refetch();
+                }
+            })
     }
 
     return (
@@ -144,7 +176,7 @@ const AddProperty = () => {
                                 <span className="label-text">Property Image</span>
                             </label>
                             <label className="input-group">
-                                <input type="file" className="file-input w-full border-lime-400" {...register("image", { required: true })}/>
+                                <input type="file" className="file-input w-full border-lime-400" {...register("image", { required: true })} />
                             </label>
                         </div>
                     </div>
@@ -199,11 +231,11 @@ const AddProperty = () => {
                                 <input type="number" placeholder="Property Zip Code" className="input w-full" {...register("zip", { required: true })} />
                             </label>
                         </div>
-                        
+
                     </div>
                     <div>
                         <div className="mt-6">
-                            <input type="submit" value="Add Job" className="py-2 font-bold w-full bg-white border-2 border-lime-500 cursor-pointer hover:bg-lime-500 hover:text-white" />
+                            <input type="submit" value="Add Property" className="py-2 font-bold w-full bg-white border-2 border-lime-500 cursor-pointer hover:bg-lime-500 hover:text-white" />
                         </div>
                     </div>
                 </form>

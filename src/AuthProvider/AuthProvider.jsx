@@ -54,36 +54,35 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
-            console.log(currentUser);
             setLoading(false);
-            if (currentUser) {
-                const userInfo = { 
-                    email: currentUser?.email,
-                    name: currentUser?.displayName,
-                    photo: currentUser?.photoURL,
-                    admin: false,
-                    agent: false,
-                    fraud: false,
-                }
-                axiosPublic.post('/users', userInfo)
-                    .then(res => {
-                        if (res.data) {
-                            console.log(res.data);
-                            // localStorage.setItem('access-token', res.data.token);
-                            // setLoading(false);
-                        }
-                    })
-            }
-            // else {
-            //     localStorage.removeItem('access-token');
-            //     setLoading(false);
-            // }
+        //     if (currentUser) {
+        //         const userInfo = { 
+        //             email: currentUser?.email,
+        //             name: currentUser?.displayName,
+        //             photo: currentUser?.photoURL,
+        //             admin: false,
+        //             agent: false,
+        //             fraud: false,
+        //         }
+        //         axiosPublic.post('/users', userInfo)
+        //             .then(res => {
+        //                 if (res.data) {
+        //                     console.log(res.data);
+        //                     // localStorage.setItem('access-token', res.data.token);
+        //                     // setLoading(false);
+        //                 }
+        //             })
+        //     }
+        //     // else {
+        //     //     localStorage.removeItem('access-token');
+        //     //     setLoading(false);
+        //     // }
         });
 
         return () => {
             unSubscribe();
         }
-    }, [axiosPublic])
+    }, [])
 
     const authInfo = { user, loading, createUser, signInUser, googleLogin, logoutUser, updateUserProfile }
 

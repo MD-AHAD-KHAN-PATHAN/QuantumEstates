@@ -25,6 +25,7 @@ const Registration = () => {
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors },
     } = useForm()
 
@@ -55,23 +56,47 @@ const Registration = () => {
                 text: "Password must contain at least one special character!",
             });
         }
+
+        // Image hosting imageBB
         const profileImage = { image: data.image[0] };
         const res = await axiosPublic.post(img_hosting_api, profileImage, {
             headers: {
                 'content-type': 'multipart/form-data'
             }
         });
-
+        
         createUser(data.email, data.password)
             .then(() => {
                 updateUserProfile(data.name, res.data.data.display_url)
                     .then(() => {
-                        Swal.fire({
-                            title: "Good job!",
-                            text: "Registation Successfull!",
-                            icon: "success"
-                          });
-                          navigate(location?.state ? location.state : '/')
+
+                        const userInfo = {
+                            name: data.name,
+                            email: data.email,
+                            photo: res.data.data.display_url,
+                            admin: false,
+                            agent: false,
+                            fraud: false,
+                        }
+
+                        axiosPublic.post('/users', userInfo)
+                            .then(res => {
+
+                                console.log(res.data);
+
+                                if (res.data.insertedId) {
+                                    reset();
+                                    Swal.fire({
+                                        icon: "success",
+                                        title: "Registration successfull.",
+                                        showConfirmButton: false,
+                                        timer: 2000
+                                    });
+
+                                    navigate(location?.state ? location.state : '/');
+                                }
+                            })
+                          
                     })
                     .catch(error => {
                         Swal.fire({
