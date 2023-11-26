@@ -9,8 +9,8 @@ const Dashboard = () => {
     return (
 
         <>
-            <div className="md:flex">
-                <div className="lg:w-60 md:w-40 min-h-screen w-full bg-lime-600">
+            <div className="lg:flex">
+                <div className="lg:w-60 lg:min-h-screen w-full bg-lime-600">
                     <ul className="menu">
                         {
                             isAdmin && <>
