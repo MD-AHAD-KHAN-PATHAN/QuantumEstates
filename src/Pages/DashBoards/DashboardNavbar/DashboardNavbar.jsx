@@ -3,12 +3,14 @@ import { FaHome, FaProductHunt, FaStar, FaUser, FaCommentDollar, FaList, FaDolla
 import { MdManageAccounts } from "react-icons/md";
 
 import { MdBookmarkAdded } from "react-icons/md";
+import useAdmin from "../../../Hooks/useAdmin";
+import useAgent from "../../../Hooks/useAgent";
 
 
 const DashboardNavbar = () => {
 
-    const isAdmin = false;
-    const isAgent = false;
+    const [isAdmin] = useAdmin();
+    const [isAgent] = useAgent();
 
     const navLink = <>
 

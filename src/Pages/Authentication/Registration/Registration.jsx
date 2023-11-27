@@ -74,9 +74,7 @@ const Registration = () => {
                             name: data.name,
                             email: data.email,
                             photo: res.data.data.display_url,
-                            admin: false,
-                            agent: false,
-                            fraud: false,
+                            role : 'user'
                         }
 
                         axiosPublic.post('/users', userInfo)

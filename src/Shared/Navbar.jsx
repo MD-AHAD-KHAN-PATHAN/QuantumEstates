@@ -1,13 +1,21 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 import { BiLogInCircle } from "react-icons/bi";
+import useAdmin from "../Hooks/useAdmin";
+import useAgent from "../Hooks/useAgent";
 
 const Navbar = () => {
 
     const {user, logoutUser} = useAuth();
 
-    const isAdmin = false;
-    const isAgent = false;
+    const [isAdmin] = useAdmin()
+    const [isAgent] = useAgent();
+
+    console.log(isAdmin);
+    console.log(isAgent);
+
+    // const isAdmin = false;
+    // const isAgent = false;
     
 
     const navLink = <>

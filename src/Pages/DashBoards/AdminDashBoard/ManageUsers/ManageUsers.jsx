@@ -1,11 +1,15 @@
 
 
+import useAdmin from "../../../../Hooks/useAdmin";
+import useAgent from "../../../../Hooks/useAgent";
 import useAllUsers from "../../../../Hooks/useAllUsers";
 
 const ManageUsers = () => {
 
     const [users, refetch] = useAllUsers();
-    
+
+    const [isAdmin] = useAdmin();
+    const [isAgent] = useAgent();
 
     return (
         <div className="overflow-x-auto lg:m-20 m-4">

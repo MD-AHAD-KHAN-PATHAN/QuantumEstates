@@ -20,7 +20,7 @@ const PropertyBought = () => {
 
     return (
         <div>
-            <h1 className="md:text-5xl text-2xl font-bold text-lime-400 text-center my-16">My Bid Property</h1>
+            <h1 className="text-4xl font-bold text-lime-400 text-center my-16">My Bid Property</h1>
 
             <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 lg:mx-16 md:mx-10 mx-4 mb-10">
                 {
