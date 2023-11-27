@@ -1,39 +1,44 @@
 import { NavLink } from "react-router-dom";
-import { FaHome } from "react-icons/fa";
+import { FaHome, FaProductHunt, FaStar, FaUser, FaCommentDollar, FaList, FaDollarSign } from "react-icons/fa";
+import { MdManageAccounts } from "react-icons/md";
+
+import { MdBookmarkAdded } from "react-icons/md";
+
 
 const DashboardNavbar = () => {
 
-    const isAdmin = true;
-    const isAgent = false;
+    const isAdmin = false;
+    const isAgent = true;
 
     const navLink = <>
 
         {
             isAdmin && <>
-
-                <li><NavLink to="/dashboard/adminProfile"> <FaHome></FaHome>Admin Profile</NavLink></li>
+                <li><NavLink to='/'><FaHome></FaHome>Home</NavLink></li>
+                <li><NavLink to="/dashboard/adminProfile"> <FaUser></FaUser>Admin Profile</NavLink></li>
                 <li><NavLink to="/dashboard/manageProperties"> <FaHome></FaHome>Manage Properties</NavLink></li>
-                <li><NavLink to="/dashboard/manageUsers"> <FaHome></FaHome>Manage Users</NavLink></li>
-                <li><NavLink to="/dashboard/manageReviews"> <FaHome></FaHome>Manage reviews</NavLink></li>
+                <li><NavLink to="/dashboard/manageUsers"> <MdManageAccounts ></MdManageAccounts >Manage Users</NavLink></li>
+                <li><NavLink to="/dashboard/manageReviews"> <FaStar></FaStar>Manage reviews</NavLink></li>
 
             </>
         }
         {
             isAgent && <>
-                <li><NavLink to="/dashboard/agentProfile"> <FaHome></FaHome>Agent Profile</NavLink></li>
-                <li><NavLink to='/dashboard/addProperty'>Add Property</NavLink></li>
-                <li><NavLink to='/dashboard/addedPropertys'>Added Propertys</NavLink></li>
-                <li><NavLink to='/dashboard/soldPropertys'>Sold Propertys</NavLink></li>
-                <li><NavLink to='/dashboard/requestedPropertys'>Requested Propertys</NavLink></li>
+                <li><NavLink to='/'><FaHome></FaHome>Home</NavLink></li>
+                <li><NavLink to="/dashboard/agentProfile"> <FaUser></FaUser>Agent Profile</NavLink></li>
+                <li><NavLink to='/dashboard/addProperty'><FaHome></FaHome> Add Property</NavLink></li>
+                <li><NavLink to='/dashboard/addedPropertys'> <MdBookmarkAdded></MdBookmarkAdded>  Added Propertys</NavLink></li>
+                <li><NavLink to='/dashboard/soldPropertys'> <FaCommentDollar></FaCommentDollar> Sold Propertys</NavLink></li>
+                <li><NavLink to='/dashboard/requestedPropertys'> <FaProductHunt></FaProductHunt> Requested Propertys</NavLink></li>
             </>
         }
         {
             !isAdmin && !isAgent && <>
-
-                <li><NavLink to="/dashboard/userProfile"> <FaHome></FaHome>User Profile</NavLink></li>
-                <li><NavLink to="/dashboard/wishlist"> <FaHome></FaHome>Wishlist</NavLink></li>
-                <li><NavLink to="/dashboard/propertyBought"> <FaHome></FaHome>Property Bought</NavLink></li>
-                <li><NavLink to="/dashboard/myReviews"> <FaHome></FaHome>My Rreviews</NavLink></li>
+                <li><NavLink to='/'><FaHome></FaHome>Home</NavLink></li>
+                <li><NavLink to="/dashboard/userProfile"> <FaUser></FaUser>User Profile</NavLink></li>
+                <li><NavLink to="/dashboard/wishlist"> <FaList></FaList>Wishlist</NavLink></li>
+                <li><NavLink to="/dashboard/propertyBought"> <FaDollarSign></FaDollarSign>Property Bought</NavLink></li>
+                <li><NavLink to="/dashboard/myReviews"> <FaStar></FaStar>My Reviews</NavLink></li>
 
             </>
         }

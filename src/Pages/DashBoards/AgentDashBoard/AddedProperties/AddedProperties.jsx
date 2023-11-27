@@ -24,10 +24,10 @@ const AddedProperties = () => {
 
     return (
         <div className="mx-12">
-            <SectionTitle heading="All Property"></SectionTitle>
-            <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
+            <SectionTitle heading="All Property" subHeading="All of my properties in the Sales category. I created the list using the “latest listing shortcode” and show items by specific categories."></SectionTitle>
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 mb-16">
                 {
-                    agentPropertys.map(property => <PropertyCard key={property?._id} property={property}></PropertyCard>)
+                    agentPropertys.map(property => <PropertyCard key={property?._id} property={property} refetch={refetch}></PropertyCard>)
                 }
             </div>
 

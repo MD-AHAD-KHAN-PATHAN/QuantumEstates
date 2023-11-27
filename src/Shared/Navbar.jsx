@@ -6,8 +6,8 @@ const Navbar = () => {
 
     const {user, logoutUser} = useAuth();
 
-    const isAdmin = true;
-    const isAgent = false;
+    const isAdmin = false;
+    const isAgent = true;
     
 
     const navLink = <>
