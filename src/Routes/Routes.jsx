@@ -21,6 +21,8 @@ import Wishlist from "../Pages/DashBoards/UserDashBoard/Wishlist/Wishlist";
 import PropertyBought from "../Pages/DashBoards/UserDashBoard/PropertyBought/PropertyBought";
 import MyReviews from "../Pages/DashBoards/UserDashBoard/MyReviews/MyReviews";
 import PropertyDetails from "../Pages/PropertyDetailsPage/PropertyDetails/PropertyDetails";
+import UpdateProperty from "../Pages/DashBoards/AgentDashBoard/UpdateProperty/UpdateProperty";
+import VerifyedPropertys from "../Pages/VerifyedPropertys/VerifyedPropertys";
 
 
 const Routes = createBrowserRouter([
@@ -42,8 +44,13 @@ const Routes = createBrowserRouter([
                 element: <Login></Login>
             },
             {
-                path: '/propertyDetails',
-                element: <PropertyDetails></PropertyDetails>
+                path: '/verifyedPropertyes',
+                element: <PrivateRoute><VerifyedPropertys></VerifyedPropertys></PrivateRoute>
+            },
+            {
+                path: '/propertys/:id',
+                element: <PropertyDetails></PropertyDetails>,
+                loader: ({params}) => fetch(`http://localhost:5000/propertys/${params.id}`)
             }
 
         ]
@@ -92,8 +99,10 @@ const Routes = createBrowserRouter([
                 element: <RequestedProperties></RequestedProperties>
             },
             {
-                
-            }
+                path: 'updateProperty/:id',
+                element: <UpdateProperty></UpdateProperty>,
+                loader: ({params}) => fetch(`http://localhost:5000/propertys/${params.id}`) 
+            },
 
             // User Related Routes
             {

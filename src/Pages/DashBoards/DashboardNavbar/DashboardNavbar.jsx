@@ -8,7 +8,7 @@ import { MdBookmarkAdded } from "react-icons/md";
 const DashboardNavbar = () => {
 
     const isAdmin = false;
-    const isAgent = true;
+    const isAgent = false;
 
     const navLink = <>
 

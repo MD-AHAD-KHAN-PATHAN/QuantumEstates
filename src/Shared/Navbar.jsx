@@ -7,12 +7,12 @@ const Navbar = () => {
     const {user, logoutUser} = useAuth();
 
     const isAdmin = false;
-    const isAgent = true;
+    const isAgent = false;
     
 
     const navLink = <>
         <li><NavLink to='/' className={"font-bold text-lime-600"}>Home</NavLink></li>
-        <li><NavLink to='/allproperties' className={"font-bold text-lime-600"}>All properties</NavLink></li>
+        <li><NavLink to='/verifyedPropertyes' className={"font-bold text-lime-600"}>All properties</NavLink></li>
 
         {
             user && isAdmin && <li><NavLink to='/dashboard/adminProfile' className={"font-bold text-lime-600"}>Dashboard</NavLink></li>

@@ -28,7 +28,6 @@ const PropertyCard = ({ property, refetch }) => {
 
     }
 
-    console.log(property);
     return (
         <div>
             <div className="bg-base-100 drop-shadow-xl relative">
@@ -49,7 +48,7 @@ const PropertyCard = ({ property, refetch }) => {
                     <div className="flex justify-between mt-8 font-bold">
 
                         <button onClick={() => handleDelete(_id)} className="text-white rounded-full p-2 bg-red-500">Delete</button>
-                        <Link to={`/propertys/${_id}`}> <button className="text-white rounded-full p-2 bg-teal-500">Update</button> </Link>
+                        <Link to={`/dashboard/updateProperty/${_id}`}> <button className="text-white rounded-full p-2 bg-teal-500">Update</button> </Link>
 
                     </div>
 

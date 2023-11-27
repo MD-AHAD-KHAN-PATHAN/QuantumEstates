@@ -40,8 +40,9 @@ const AddProperty = () => {
 
 
         data.image = res.data.data.display_url;
+        data.agentImage = user?.photoURL;
 
-        axiosPublic.post('/property', data)
+        axiosPublic.post('/propertys', data)
             .then(res => {
                 console.log(res.data);
                 if (res.data.insertedId) {
