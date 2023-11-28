@@ -24,6 +24,7 @@ import PropertyDetails from "../Pages/PropertyDetailsPage/PropertyDetails/Proper
 import UpdateProperty from "../Pages/DashBoards/AgentDashBoard/UpdateProperty/UpdateProperty";
 import VerifyedPropertys from "../Pages/VerifyedPropertys/VerifyedPropertys";
 import WishlistOffer from "../Pages/DashBoards/UserDashBoard/WishlistOffer/WishlistOffer";
+import Payment from "../Pages/DashBoards/UserDashBoard/Payment/Payment";
 
 
 const Routes = createBrowserRouter([
@@ -125,9 +126,15 @@ const Routes = createBrowserRouter([
                 // loader: ({params}) => fetch(`http://localhost:5000/propertyBought/user/${params.email}`)
             },
             {
+                path: 'propertyBought/user/pay/:id',
+                element: <Payment></Payment>,
+                loader: ({params}) => fetch(`http://localhost:5000/propertyBought/user/pay/${params?.id}`)
+            },
+            {
                 path: 'myReviews',
                 element: <MyReviews></MyReviews>
             },
+            
         ]
     }
 ])
