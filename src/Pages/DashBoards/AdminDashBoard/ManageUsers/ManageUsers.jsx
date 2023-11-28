@@ -111,7 +111,7 @@ const ManageUsers = () => {
                 </thead>
                 <tbody>
                     {
-                        users.map((user, indx) => <tr key={user?._id}>
+                        users?.map((user, indx) => <tr key={user?._id}>
                             <th>
                                 {indx + 1}
                             </th>
