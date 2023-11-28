@@ -3,15 +3,26 @@ import { FaLocationDot } from "react-icons/fa6";
 import useAuth from "../../../Hooks/useAuth";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import AddReview from "../AddReview/AddReview";
 
 const PropertyDetails = () => {
 
     const HomeDetails = useLoaderData();
     const navigate = useNavigate();
+    const {user} = useAuth();
 
     const { _id, name, email, description, verify, image, title, area, address, city, country, maximum, minimum, agentImage, bedroom, bathrooms, size, phone } = HomeDetails;
 
-    const { user } = useAuth();
+    const reviewInfo = {
+        productId: _id,
+        reviewerName: user?.displayName,
+        reviewerImage: user?.photoURL,
+        reviewerEmail: user?.email,
+        propertyTitle: title,
+        agentName: name,
+        agentEmail: email,
+    }
+
     const axiosPublic = useAxiosPublic();
 
     const handleWishlist = () => {
@@ -58,7 +69,7 @@ const PropertyDetails = () => {
 
     }
 
-
+    
     return (
         <>
             <div className=" lg:mx-20 md:mx-10 mx-6 mt-10">
@@ -120,6 +131,8 @@ const PropertyDetails = () => {
                 </div>
 
             </div>
+
+            <AddReview reviewInfo={reviewInfo}></AddReview>
 
         </>
     );

@@ -1,45 +1,96 @@
-import { useForm } from "react-hook-form";
 
-const AddReview = () => {
+import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
+import Swal from "sweetalert2";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
+import ReviewCard from "../ReviewCard/ReviewCard";
 
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm()
 
-    const onSubmit = async (data) => {
-        console.log(data);
+const AddReview = ({ reviewInfo }) => {
+
+
+
+    const axiosPublic = useAxiosPublic();
+
+    let currentDate = new Date();
+
+    let hours = currentDate.getHours();
+    let minitus = currentDate.getMinutes();
+    let seconds = currentDate.getSeconds();
+    let meridiem = 'AM'
+
+    if (hours > 12) {
+        hours -= 12;
+        meridiem = 'PM';
     }
+
+    if (hours === 0) {
+        hours = 12;
+    }
+
+    const addZero = (number) => {
+        return number < 10 ? '0' + number : number
+    }
+
+    const currentTime = hours + 'h ' + addZero(minitus) + 'm ' + addZero(seconds)+'s' + ' ' + meridiem;
+
+    console.log(currentTime);
+
+    const model = async () => {
+        const { value: text } = await Swal.fire({
+            input: "textarea",
+            inputLabel: "Message",
+            inputPlaceholder: "Type your message here...",
+            inputAttributes: {
+              "aria-label": "Type your message here"
+            },
+          });
+          if (text) {
+            reviewInfo.description = text;
+            reviewInfo.time = currentTime;
+            
+            axiosPublic.post('/reviews', reviewInfo)
+            .then(res => {
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Successfully added your review",
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                    refetch();   
+                }
+            })
+
+          }
+    }
+
+    const {data: reviews = [], refetch} = useQuery({
+
+        queryKey: ['reviews'],
+        queryFn: async () => {
+            const res = await axiosPublic.get(`/reviews/${reviewInfo?.productId}`)
+            return res?.data;
+        }
+    })
+
+    console.log(reviews);
+
 
     return (
         <div>
-            <div className="card flex-shrink-0 max-w-3xl shadow-2xl">
-                        <div className='bg-lime-600 p-6 text-white rounded-t-lg'>
-                            <h1 className='text-3xl font-semibold'>Sign in</h1>
-                            
-                        </div>
-                        <div className="card-body">
-                            <form onSubmit={handleSubmit(onSubmit)}>
-                                <div className="form-control">
-                                    <label className="label">
-                                        <span className="label-text text-lime-500">Email</span>
-                                    </label>
-                                    <input type="email" {...register("email", { required: true })} placeholder="email" className="border-1 border-lime-400 input input-bordered w-full" required />
-                                </div>
 
-                                <div className="form-control">
-                                    <label className="label">
-                                        <span className="label-text text-lime-500">Password</span>
-                                    </label>
-                                    <input type="password" {...register("password", { required: true })} placeholder="password" className="border-1 border-lime-400 input input-bordered" required />
-                                </div>
-                                <div className="form-control mt-6 p-0">
-                                    <button className="btn bg-white  hover:bg-lime-400 hover:text-white text-lime-500 border-1 border-lime-400 font-bold"> Review </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+            <SectionTitle heading="Testimonials" subHeading="Publish the best of your client testimonials and let the world know what a great agent or real estate agency you are. Testimonials build trust."></SectionTitle>
+
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 lg:mx-20 md:mx-10 mx-6">
+                {
+                    reviews?.map(review => <ReviewCard key={review?._id} review={review}></ReviewCard>)
+                }
+            </div>
+
+            <div className="flex justify-center my-10">
+                <button onClick={model} className="p-2 bg-lime-400 text-white font-bold rounded-lg ml-2">Please give us a feedback</button>
+            </div>
         </div>
     );
 };
