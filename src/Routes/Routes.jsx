@@ -25,6 +25,7 @@ import UpdateProperty from "../Pages/DashBoards/AgentDashBoard/UpdateProperty/Up
 import VerifyedPropertys from "../Pages/VerifyedPropertys/VerifyedPropertys";
 import WishlistOffer from "../Pages/DashBoards/UserDashBoard/WishlistOffer/WishlistOffer";
 import Payment from "../Pages/DashBoards/UserDashBoard/Payment/Payment";
+import AdvertiseProperties from "../Pages/DashBoards/AdminDashBoard/AdvertiseProperties/AdvertiseProperties";
 
 
 const Routes = createBrowserRouter([
@@ -51,13 +52,13 @@ const Routes = createBrowserRouter([
             },
             {
                 path: '/propertys/:id',
-                element: <PropertyDetails></PropertyDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/propertys/${params.id}`)
+                element: <PrivateRoute><PropertyDetails></PropertyDetails></PrivateRoute>,
+                loader: ({params}) => fetch(`http://localhost:5000/propertys/${params?.id}`)
             },
             {
                 path: '/wishlists/:id',
                 element: <WishlistOffer></WishlistOffer>,
-                loader: ({params}) => fetch(`http://localhost:5000/wishlists/${params.id}`)
+                loader: ({params}) => fetch(`http://localhost:5000/wishlists/${params?.id}`)
             },
 
         ]
@@ -82,6 +83,10 @@ const Routes = createBrowserRouter([
             {
                 path: 'manageReviews',
                 element: <ManageReviews></ManageReviews>
+            },
+            {
+                path: 'advertise',
+                element: <AdvertiseProperties></AdvertiseProperties>
             },
 
             // Agent Related Routes
@@ -118,7 +123,7 @@ const Routes = createBrowserRouter([
             },
             {
                 path: 'wishlist',
-                element: <Wishlist></Wishlist>
+                element: <Wishlist></Wishlist>,
             },
             {
                 path: 'propertyBought',

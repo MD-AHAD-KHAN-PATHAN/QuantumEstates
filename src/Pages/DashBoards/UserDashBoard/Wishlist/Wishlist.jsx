@@ -2,20 +2,25 @@ import SectionTitle from "../../../../Components/SectionTitle/SectionTitle";
 import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import WishlistCard from "../WishlistCard/WishlistCard";
+import useAuth from "../../../../Hooks/useAuth";
+// import { useLoaderData } from "react-router-dom";
 
 const Wishlist = () => {
 
 
     const axiosPublic = useAxiosPublic();
-
+    const {user} = useAuth();
+    // const wishlists = useLoaderData();
     const { data: wishlists = [], refetch } = useQuery({
         queryKey: ['wishlists'],
         queryFn: async () => {
-            const res = await axiosPublic.get('/wishlists');
+            const res = await axiosPublic.get(`/wishlists/user/${user?.email}`);
 
-            return res.data;
+            return res?.data;
         }
     })
+
+    console.log('wishlist data : ', wishlists);
 
 
     return (

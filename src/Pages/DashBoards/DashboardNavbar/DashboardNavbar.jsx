@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { FaHome, FaProductHunt, FaStar, FaUser, FaCommentDollar, FaList, FaDollarSign } from "react-icons/fa";
 import { MdManageAccounts } from "react-icons/md";
+import { RiAdvertisementFill } from "react-icons/ri";
 
 import { MdBookmarkAdded } from "react-icons/md";
 import useAdmin from "../../../Hooks/useAdmin";
@@ -21,6 +22,7 @@ const DashboardNavbar = () => {
                 <li><NavLink to="/dashboard/manageProperties"> <FaHome></FaHome>Manage Properties</NavLink></li>
                 <li><NavLink to="/dashboard/manageUsers"> <MdManageAccounts ></MdManageAccounts >Manage Users</NavLink></li>
                 <li><NavLink to="/dashboard/manageReviews"> <FaStar></FaStar>Manage reviews</NavLink></li>
+                <li><NavLink to="/dashboard/advertise"> <RiAdvertisementFill />Advertise property</NavLink></li>
 
             </>
         }

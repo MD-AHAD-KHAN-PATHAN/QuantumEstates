@@ -1,17 +1,37 @@
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
+import { useState } from "react";
 
 
 const WishlistOffer = () => {
 
     const wishlistData = useLoaderData();
+
+    const axiosPublic = useAxiosPublic();
+
+    const [offerData, setOffeerData] = useState({});
+
+    const {id} = useParams();
+    
+    console.log(id);
+    console.log('wishList single data : ', wishlistData)
+
+    // useEffect(() => {
+    //     axiosPublic.get(`/wishlists/${id}`)
+    //     .then(res => {
+    //         console.log(res);
+    //         setOffeerData(res?.data);
+    //     })
+    // }, [axiosPublic, id])
+
     const navigate = useNavigate();
+    console.log(wishlistData);
 
     const { PropertyImage, title, verify, agentName, agentEmail, agentImage, area, address, city, country, maximum, minimum, bedroom, bathrooms, buyerName, buyerEmail, buyerImage } = wishlistData;
 
-    const axiosPublic = useAxiosPublic();
+
 
     const {
         register,
@@ -60,19 +80,19 @@ const WishlistOffer = () => {
 
         console.log(offerInfo);
         axiosPublic.post('/propertyBought', offerInfo)
-        .then(res => {
-            if (res.data.insertedId) {
-                Swal.fire({
-                    icon: "success",
-                    title: "This property buying request sent",
-                    showConfirmButton: false,
-                    timer: 2000
-                });
+            .then(res => {
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "This property buying request sent",
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
 
-                navigate('/dashboard/propertyBought');
+                    navigate('/dashboard/propertyBought');
 
-            }
-        })
+                }
+            })
     }
 
 

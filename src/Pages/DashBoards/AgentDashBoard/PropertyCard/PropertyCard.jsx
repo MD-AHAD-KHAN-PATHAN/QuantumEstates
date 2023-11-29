@@ -13,18 +13,32 @@ const PropertyCard = ({ property, refetch }) => {
 
     const handleDelete = (id) => {
 
-        axiosSecure.delete(`/propertys/${id}`)
-            .then(res => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.delete(`/propertys/${id}`)
+                    .then(res => {
 
-                if (res.data.deletedCount > 0) {
-                    Swal.fire({
-                        title: "oH!",
-                        text: "Successfully deleted your property!",
-                        icon: "success"
-                    });
-                    refetch();
-                }
-            })
+                        if (res.data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "oH!",
+                                text: "Successfully deleted your property!",
+                                icon: "success"
+                            });
+                            refetch();
+                        }
+                    })
+            }
+        });
+
+
 
     }
 
@@ -48,7 +62,9 @@ const PropertyCard = ({ property, refetch }) => {
                     <div className="flex justify-between mt-8 font-bold">
 
                         <button onClick={() => handleDelete(_id)} className="text-white rounded-full p-2 bg-red-500">Delete</button>
-                        <Link to={`/dashboard/updateProperty/${_id}`}> <button className="text-white rounded-full p-2 bg-teal-500">Update</button> </Link>
+                        {
+                            verify !== "rejected" && <Link to={`/dashboard/updateProperty/${_id}`}> <button className="text-white rounded-full p-2 bg-teal-500">Update</button> </Link>
+                        }
 
                     </div>
 

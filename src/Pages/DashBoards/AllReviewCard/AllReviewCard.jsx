@@ -21,7 +21,7 @@ const AllReviewCard = ({ item, refetch }) => {
 
                 axiosSecure.delete(`/reviews/admin/${_id}`)
                 .then(res => {
-                    if(res.data.deletedCount > 0){
+                    if(res?.data?.deletedCount > 0){
                         Swal.fire({
                             title: "Deleted!",
                             text: "Review has been deleted.",

@@ -9,6 +9,7 @@ const WishlistCard = ({list, refetch}) => {
     const {_id, PropertyImage, title, verify, agentName, agentEmail, agentImage, area, address, city, country, maximum, minimum, bedroom, bathrooms, buyerName, buyerEmail, buyerImage} = list;
 
     const axiosPublic = useAxiosPublic();
+    console.log(_id);
 
     const handleRemove = (id) => {
         console.log(id);

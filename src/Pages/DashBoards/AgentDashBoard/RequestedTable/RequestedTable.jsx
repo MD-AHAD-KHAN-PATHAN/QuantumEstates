@@ -86,13 +86,13 @@ const RequestedTable = ({ item, refetch }) => {
             </th>
             <th>
                 {
-                    status === 'accepted' && <button className="btn btn-ghost btn-xs bg-lime-400 font-bold text-white">Accepted</button>
+                    status === 'accepted' && <button className="btn btn-ghost btn-xs bg-lime-700 font-bold text-white">Accepted</button>
                 }
                 {
-                    status === 'rejected' && <button className="btn btn-ghost btn-xs bg-red-400 font-bold text-white">Rejected</button>
+                    status === 'rejected' && <button className="btn btn-ghost btn-xs bg-red-700 font-bold text-white">Rejected</button>
                 }
                 {
-                    status === 'pending' && <button onClick={() => handleReject(_id)} className="btn btn-ghost btn-xs bg-red-700 font-bold text-white">Reject</button>
+                    status === 'pending' && <button onClick={() => handleReject(_id)} className="btn btn-ghost btn-xs bg-red-400 font-bold text-white">Reject</button>
                 }
                 {
                     status === 'bought' && <button className="btn btn-ghost btn-xs">Sold out</button>
