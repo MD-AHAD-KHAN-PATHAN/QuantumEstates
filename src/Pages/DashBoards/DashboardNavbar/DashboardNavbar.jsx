@@ -6,12 +6,14 @@ import { RiAdvertisementFill } from "react-icons/ri";
 import { MdBookmarkAdded } from "react-icons/md";
 import useAdmin from "../../../Hooks/useAdmin";
 import useAgent from "../../../Hooks/useAgent";
+import useFraud from "../../../Hooks/useFraud";
 
 
 const DashboardNavbar = () => {
 
     const [isAdmin] = useAdmin();
     const [isAgent] = useAgent();
+    const [isFraud] = useFraud();
 
     const navLink = <>
 
@@ -37,7 +39,17 @@ const DashboardNavbar = () => {
             </>
         }
         {
-            !isAdmin && !isAgent && <>
+            isFraud && <>
+                <li><NavLink to='/'><FaHome></FaHome>Home</NavLink></li>
+                <li><NavLink to="/dashboard/agentProfile"> <FaUser></FaUser>Agent Profile</NavLink></li>
+                <li><NavLink to='/dashboard/addProperty'><FaHome></FaHome> Add Property</NavLink></li>
+                <li><NavLink to='/dashboard/addedPropertys'> <MdBookmarkAdded></MdBookmarkAdded>  Added Propertys</NavLink></li>
+                <li><NavLink to='/dashboard/soldPropertys'> <FaCommentDollar></FaCommentDollar> Sold Propertys</NavLink></li>
+                <li><NavLink to='/dashboard/requestedPropertys'> <FaProductHunt></FaProductHunt> Requested Propertys</NavLink></li>
+            </>
+        }
+        {
+            !isAdmin && !isAgent && !isFraud && <>
                 <li><NavLink to='/'><FaHome></FaHome>Home</NavLink></li>
                 <li><NavLink to="/dashboard/userProfile"> <FaUser></FaUser>User Profile</NavLink></li>
                 <li><NavLink to="/dashboard/wishlist"> <FaList></FaList>Wishlist</NavLink></li>

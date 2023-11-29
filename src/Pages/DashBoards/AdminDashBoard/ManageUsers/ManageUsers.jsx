@@ -75,6 +75,11 @@ const ManageUsers = () => {
                 }
             })
 
+            axiosSecure.delete(`/fraud/data/${email}`)
+            .then(res => {
+                console.log(res?.data);
+            })
+
     }
 
     const handleDelete = (id, email) => {
@@ -159,17 +164,17 @@ const ManageUsers = () => {
 
                             </td>
                             <td>
-                                {
+                                {/* {
                                     user?.role === 'admin' && <p>Admin</p>
                                 }
                                 {
                                     user?.role === 'agent' && <p>Agent</p>
-                                }
+                                } */}
                                 {
                                     user?.role === 'fraud' && <p>Fraud</p>
                                 }
                                 {
-                                    user?.role === 'user' && <button onClick={() => handleFraud(user?._id, user?.email)} className="bg-red-400 text-white p-2 rounded-full font-semibold">Make Fraud</button>
+                                    user?.role === 'agent' && <button onClick={() => handleFraud(user?._id, user?.email)} className="bg-red-400 text-white p-2 rounded-full font-semibold">Make Fraud</button>
                                 }
 
                             </td>

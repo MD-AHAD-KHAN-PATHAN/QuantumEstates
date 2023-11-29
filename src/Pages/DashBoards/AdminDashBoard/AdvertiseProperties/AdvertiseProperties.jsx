@@ -42,20 +42,6 @@ const AdvertiseProperties = () => {
                         refetch();
                     }
                 })
-
-            // axiosPublic.post('/admin/advertise', item)
-            // .then(res => {
-            //     if(res?.data?.insertedId){
-            //         Swal.fire({
-            //             title: "Added!",
-            //             text: "Advertise this property",
-            //             icon: "success"
-            //           });
-            //           refetch();
-            //     }
-            // })
-
-
         }
         else {
             Swal.fire({
@@ -82,19 +68,6 @@ const AdvertiseProperties = () => {
                     refetch();
                 }
             })
-
-        // axiosPublic.delete(`/admin/advertise/${id}`)
-        //     .then(res => {
-        //         if (res?.data?.deletedCount > 0) {
-        //             Swal.fire({
-        //                 title: "Deleted!",
-        //                 text: "Advertise Removed",
-        //                 icon: "success"
-        //             });
-        //             refetch();
-        //         }
-        //     })
-
 
     }
 

@@ -3,6 +3,7 @@ import useAuth from "../Hooks/useAuth";
 import { BiLogInCircle } from "react-icons/bi";
 import useAdmin from "../Hooks/useAdmin";
 import useAgent from "../Hooks/useAgent";
+import useFraud from "../Hooks/useFraud";
 
 const Navbar = () => {
 
@@ -10,6 +11,7 @@ const Navbar = () => {
 
     const [isAdmin] = useAdmin()
     const [isAgent] = useAgent();
+    const [isFraud] = useFraud();
 
     console.log(isAdmin);
     console.log(isAgent);
@@ -30,7 +32,10 @@ const Navbar = () => {
             user && isAgent && <li><NavLink to='/dashboard/agentProfile' className={"font-bold text-lime-600"}>Dashboard</NavLink></li>
         }
         {
-            user && !isAdmin && !isAgent && <li><NavLink to='/dashboard/userProfile' className={"font-bold text-lime-600"}>Dashboard</NavLink></li>
+            user && isFraud && <li><NavLink to='/dashboard/agentProfile' className={"font-bold text-lime-600"}>Dashboard</NavLink></li>
+        }
+        {
+            user && !isAdmin && !isAgent && !isFraud && <li><NavLink to='/dashboard/userProfile' className={"font-bold text-lime-600"}>Dashboard</NavLink></li>
         }
        
     </>

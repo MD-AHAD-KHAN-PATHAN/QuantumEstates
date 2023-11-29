@@ -3,6 +3,7 @@ import useAuth from "../../../../Hooks/useAuth";
 import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 import useAllUsers from "../../../../Hooks/useAllUsers";
 import Swal from "sweetalert2";
+import useFraud from "../../../../Hooks/useFraud";
 
 const img_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const img_hosting_api = `https://api.imgbb.com/1/upload?key=${img_hosting_key}`;
@@ -10,6 +11,7 @@ const AddProperty = () => {
 
     const { user } = useAuth();
     const axiosPublic = useAxiosPublic();
+    const [isFraud] = useFraud();
 
     const [, refetch] = useAllUsers();
 
@@ -236,7 +238,9 @@ const AddProperty = () => {
                     </div>
                     <div>
                         <div className="mt-6">
-                            <input type="submit" value="Add Property" className="py-2 font-bold w-full bg-white border-2 border-lime-500 cursor-pointer hover:bg-lime-500 hover:text-white" />
+                            {
+                                !isFraud && <input type="submit" value="Add Property" className="py-2 font-bold w-full bg-white border-2 border-lime-500 cursor-pointer hover:bg-lime-500 hover:text-white" />
+                            }
                         </div>
                     </div>
                 </form>
