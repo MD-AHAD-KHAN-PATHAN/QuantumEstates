@@ -2,12 +2,18 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import { useState } from "react";
+import useAdvertise from "../../../../Hooks/useAdvertise";
 
 
 const AdvertiseProperties = () => {
     const axiosPublic = useAxiosPublic();
 
+    // advertise data collections hooks;
+    const [advertise] = useAdvertise();
+    console.log('advertise items length : ',advertise.length);
+
     const [numbers, setNumbers] = useState(1);
+    
 
     const verify = {
         status: "verified",
@@ -17,11 +23,19 @@ const AdvertiseProperties = () => {
         queryKey: ['verifyed'],
         queryFn: async () => {
             const res = await axiosPublic.get(`/propertys/verified/${verify?.status}`)
-
+            console.log(res.data.length);
             return res.data
         }
     })
 
+    // const increase = () => {
+    //     setNumbers(numbers + 1);
+    // }
+    // const decrease = () => {
+    //     setNumbers(numbers - 1);
+    // }
+
+    console.log('numbers', numbers);
 
 
     const handleAdvertise = (id, item) => {

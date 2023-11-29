@@ -1,21 +1,11 @@
-import { useEffect, useState } from "react";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
-import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import LatestCard from "../LatestCard/LatestCard";
+import useAdvertise from "../../../Hooks/useAdvertise";
 
 const LatestProperty = () => {
 
-    const axiosPublic = useAxiosPublic();
-    const [advertise, setAdvertise] = useState([]);
-
-    useEffect(() => {
-        axiosPublic.get('/advertise')
-            .then(res => {
-                setAdvertise(res?.data);
-            })
-    }, [axiosPublic])
-
-    console.log(advertise);
+    // advertise data collections hooks;
+    const [advertise] = useAdvertise();
 
     return (
 
