@@ -43,6 +43,9 @@ const AddProperty = () => {
 
         data.image = res.data.data.display_url;
         data.agentImage = user?.photoURL;
+        data.maximum = parseInt(data.maximum);
+        data.minimum = parseInt(data.minimum);
+
 
         axiosPublic.post('/propertys', data)
             .then(res => {

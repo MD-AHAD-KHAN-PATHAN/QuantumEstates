@@ -7,6 +7,7 @@ const axiosSecure = axios.create({
     baseURL: 'http://localhost:5000',
 
 })
+// https://quantumstate-server.vercel.app
 
 const useAxiosSecure = () => {
 

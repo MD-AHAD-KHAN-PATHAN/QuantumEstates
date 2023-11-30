@@ -5,6 +5,7 @@ const axiosPublic = axios.create({
     baseURL: 'http://localhost:5000'
 })
 
+// https://quantumstate-server.vercel.app
 const useAxiosPublic = () => {
 
     return axiosPublic;
