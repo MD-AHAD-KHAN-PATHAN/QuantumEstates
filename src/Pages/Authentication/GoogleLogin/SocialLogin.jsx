@@ -6,7 +6,7 @@ import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 
 const SocialLogin = () => {
 
-    const { googleLogin } = useAuth();
+    const { googleLogin, } = useAuth();
     const axiosPublic = useAxiosPublic();
 
     const navigate = useNavigate();

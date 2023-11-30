@@ -90,7 +90,7 @@ const CheckoutForm = ({ totalPrice, pay }) => {
                 
                 const res = await axiosSecure.post('/payments', paymentInfo);
                 console.log(res.data);
-                if (res.data?.result?.insertedId) {
+                if (res.data?.insertedId) {
                     Swal.fire({
                         position: "top-end",
                         icon: "success",
