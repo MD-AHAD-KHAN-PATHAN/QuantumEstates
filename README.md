@@ -6,9 +6,9 @@
 ## [ Server Side Private repo](https://github.com/programming-hero-web-course1/b8a12-server-side-MD-AHAD-KHAN-PATHAN)
 
 
-## [ project Live Link ](link here!)
+## [ project Live Link ](https://gentle-hummingbird-b181cb.netlify.app/)
 
-Click here for the live project link : [link here!]
+Click here for the live project link : [https://gentle-hummingbird-b181cb.netlify.app/]
 
 # About My Project
 
@@ -45,6 +45,6 @@ properties) using the MERN stack.
 
 - Responsive Design: This project is not only feature-rich but also offers a responsive design, ensuring an optimal viewing experience on various devices, including desktops, tablets, and mobile phones.
 
-- Seamless User Experience: With Firebase authentication, MongoDB storage, and Express.js server functionality, My project offers a complete and engaging platform for property buyer to explore, interact with, and potentially grab their dream property.
+- Seamless User Experience: With Firebase authentication, MongoDB storage, and Express.js server functionality, My project offers a complete and engaging platform for property buyer or property seller to explore, interact with, and potentially grab their dream property.
 
 
