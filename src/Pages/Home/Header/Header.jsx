@@ -30,7 +30,7 @@ const Header = () => {
                 className="mySwiper"
             >
                 <SwiperSlide>
-                    <div className="bg-gradient-to-r from-lime-900 bg-no-repeat bg-cover bg-center" style={{ backgroundImage: 'url("https://i.ibb.co/XLnXpJc/sean-pollock-Ph-Yq704ffd-A-unsplash.jpg")' }}>
+                    <div className="bg-gradient-to-r from-lime-900 bg-no-repeat bg-cover bg-center" style={{ backgroundImage: 'url("https://i.ibb.co/rGmrjr7/sean-pollock-Ph-Yq704ffd-A-unsplash.jpg")' }}>
                         <div className="flex items-center justify-center min-h-screen">
                             <div className="max-w-5xl">
                                 <h1 className="md:text-5xl text-3xl text-center font-bold text-white">Your <span className='text-lime-500'>Premier Destination</span>  for Real Estate</h1>
@@ -42,7 +42,7 @@ const Header = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="bg-gradient-to-r from-lime-900 bg-no-repeat bg-cover bg-center" style={{ backgroundImage: 'url("https://i.ibb.co/GH16MTm/r-architecture-2g-Dwl-Iim3-Uw-unsplash.jpg")' }}>
+                    <div className="bg-gradient-to-r from-lime-900 bg-no-repeat bg-cover bg-center" style={{ backgroundImage: 'url("https://i.ibb.co/mDpHz6v/r-architecture-2g-Dwl-Iim3-Uw-unsplash.jpg")' }}>
                         <div className="flex items-center justify-center min-h-screen">
                             <div className="max-w-5xl">
                                 <h1 className="md:text-5xl text-3xl text-center font-bold text-white">Find Your <span className='text-lime-500'>Dream Home</span> with Us</h1>
@@ -54,7 +54,7 @@ const Header = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="bg-gradient-to-r from-lime-900 bg-no-repeat bg-cover bg-center" style={{ backgroundImage: 'url("https://i.ibb.co/YdHT140/robert-bock-c-V4qkkor-DFY-unsplash.jpg")' }}>
+                    <div className="bg-gradient-to-r from-lime-900 bg-no-repeat bg-cover bg-center" style={{ backgroundImage: 'url("https://i.ibb.co/LkbhwrY/robert-bock-c-V4qkkor-DFY-unsplash.jpg")' }}>
                         <div className="flex items-center justify-center min-h-screen">
                             <div className="max-w-5xl">
                                 <h1 className="md:text-5xl text-3xl text-center font-bold text-white">Sell Your <span className='text-lime-500'>Property with</span>  Confidence</h1>
