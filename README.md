@@ -18,9 +18,9 @@ properties) using the MERN stack.
 
 - Express.js Server: For server-side functionality, Express.js is employed to create APIs for adding, updating, and deleting Property details, as well as handling user interactions.
 
-- Secure Payment Processing with Stripe: Integrate Stripe API to facilitate secure payment transactions for property purchases or reservations.
-
 - Payment Gateway: Implement a seamless payment gateway allowing users to pay using various methods, including credit/debit cards.
+
+- Secure Payment Processing with Stripe: Integrate Stripe API to facilitate secure payment transactions for property purchases.
 
 - User Payment History: Provide users with a history of their payment transactions Id, accessible from their profile and Property dealer.
 
