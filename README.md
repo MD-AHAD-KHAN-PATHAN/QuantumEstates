@@ -1,9 +1,6 @@
 # QuantumEstates
 
-
-## [ Client Side Private repo](https://github.com/programming-hero-web-course1/b8a12-client-side-MD-AHAD-KHAN-PATHAN)
-
-## [ Server Side Private repo](https://github.com/programming-hero-web-course1/b8a12-server-side-MD-AHAD-KHAN-PATHAN)
+## [ Server Side Private repo](https://github.com/MD-AHAD-KHAN-PATHAN/quantumstate-server)
 
 
 ## [ project Live Link ](https://gentle-hummingbird-b181cb.netlify.app/)
