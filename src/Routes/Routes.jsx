@@ -53,12 +53,12 @@ const Routes = createBrowserRouter([
             {
                 path: '/propertys/:id',
                 element: <PrivateRoute><PropertyDetails></PropertyDetails></PrivateRoute>,
-                loader: ({params}) => fetch(`https://quantumstate-server.vercel.app/propertys/${params?.id}`)
+                loader: ({params}) => fetch(`http://localhost:5000/propertys/${params?.id}`)
             },
             {
                 path: '/wishlists/:id',
                 element: <PrivateRoute><WishlistOffer></WishlistOffer></PrivateRoute>,
-                loader: ({params}) => fetch(`https://quantumstate-server.vercel.app/wishlists/${params?.id}`)
+                loader: ({params}) => fetch(`http://localhost:5000/wishlists/${params?.id}`)
             },
 
         ]
@@ -113,7 +113,7 @@ const Routes = createBrowserRouter([
             {
                 path: 'updateProperty/:id',
                 element: <UpdateProperty></UpdateProperty>,
-                loader: ({params}) => fetch(`https://quantumstate-server.vercel.app/propertys/${params.id}`) 
+                loader: ({params}) => fetch(`http://localhost:5000/propertys/${params.id}`) 
             },
 
             // User Related Routes
@@ -128,12 +128,12 @@ const Routes = createBrowserRouter([
             {
                 path: 'propertyBought',
                 element: <PropertyBought></PropertyBought>,
-                // loader: ({params}) => fetch(`https://quantumstate-server.vercel.app/propertyBought/user/${params.email}`)
+                // loader: ({params}) => fetch(`http://localhost:5000/propertyBought/user/${params.email}`)
             },
             {
                 path: 'propertyBought/user/pay/:id',
                 element: <Payment></Payment>,
-                loader: ({params}) => fetch(`https://quantumstate-server.vercel.app/propertyBought/user/pay/${params?.id}`)
+                loader: ({params}) => fetch(`http://localhost:5000/propertyBought/user/pay/${params?.id}`)
             },
             {
                 path: 'myReviews',

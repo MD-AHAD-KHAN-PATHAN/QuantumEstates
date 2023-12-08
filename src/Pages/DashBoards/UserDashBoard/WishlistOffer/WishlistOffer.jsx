@@ -14,20 +14,8 @@ const WishlistOffer = () => {
     const [offerData, setOffeerData] = useState({});
 
     const {id} = useParams();
-    
-    console.log(id);
-    console.log('wishList single data : ', wishlistData)
-
-    // useEffect(() => {
-    //     axiosPublic.get(`/wishlists/${id}`)
-    //     .then(res => {
-    //         console.log(res);
-    //         setOffeerData(res?.data);
-    //     })
-    // }, [axiosPublic, id])
 
     const navigate = useNavigate();
-    console.log(wishlistData);
 
     const { PropertyImage, title, verify, agentName, agentEmail, agentImage, area, address, city, country, maximum, minimum, bedroom, bathrooms, buyerName, buyerEmail, buyerImage } = wishlistData;
 
@@ -51,14 +39,17 @@ const WishlistOffer = () => {
 
     const onSubmit = async (data) => {
 
-        if (parseInt(data.offer) > parseInt(maximum) || parseInt(data.offer) < parseInt(minimum)) {
+        const offer = parseInt(data?.offer);
+
+        if(offer > maximum || offer < minimum) {
+            console.log(offer, maximum, minimum);
             Swal.fire({
                 title: "Oh no !",
                 text: "Please Offer your amount between the maximum and minimum price",
                 icon: "error"
             });
 
-            return
+            return;
         }
 
         const propertyAddress = `${area},${city},${country}`;

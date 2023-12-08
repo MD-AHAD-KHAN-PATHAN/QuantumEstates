@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const axiosPublic = axios.create({
-    baseURL: 'https://quantumstate-server.vercel.app'
+    baseURL: 'http://localhost:5000'
 })
 
 // https://quantumstate-server.vercel.app
