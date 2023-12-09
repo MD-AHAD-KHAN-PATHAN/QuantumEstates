@@ -14,7 +14,7 @@ properties) using the MERN stack.
 
 - Firebase Authentication: Users can sign up, log in, and enjoy personalized experiences through Firebase authentication, ensuring their data is secure.
 
-- MongoDB Database: This project utilizes MongoDB as a NoSQL database to store and manage data such as Property details, users reviews, payment information, and user information etc.
+- MongoDB Database: This project utilizes MongoDB as a NoSQL database to store and manage data such as Property details, user reviews, payment information, user information, etc.
 
 - Express.js Server: For server-side functionality, Express.js is employed to create APIs for adding, updating, and deleting Property details, as well as handling user interactions.
 
@@ -22,7 +22,7 @@ properties) using the MERN stack.
 
 - Secure Payment Processing with Stripe: Integrate Stripe API to facilitate secure payment transactions for property purchases.
 
-- User Payment History: Provide users with a history of their payment transactions Id, accessible from their profile and Property dealer.
+- User Payment History: Provide users with a history of their payment transactions ID, accessible from their profile and Property dealer.
 
 - User Roles: Implement roles such as property owner/agent, buyer, and admin with different access levels.
 
@@ -36,12 +36,12 @@ properties) using the MERN stack.
 
 - Property buy request Tracking: Enable users to track the status of their property, including whether they have been viewed or received responses.
 
-- Adding Property details post: Registered agent can add new property post to the database, contributing to the catalog and keeping it up-to-date.
+- Adding Property details post: Registered agents can add new property posts to the database, contributing to the catalog and keeping it up-to-date.
 
-- Property Data Management: The project enables Registered Agent to add, update, and remove property post their cart, creating a seamless and user-friendly Buy experience.
+- Property Data Management: The project enables Registered Agents to add, update, and remove property post their cart, creating a seamless and user-friendly Buy experience.
 
 - Responsive Design: This project is not only feature-rich but also offers a responsive design, ensuring an optimal viewing experience on various devices, including desktops, tablets, and mobile phones.
 
-- Seamless User Experience: With Firebase authentication, MongoDB storage, and Express.js server functionality, My project offers a complete and engaging platform for property buyer or property seller to explore, interact with, and potentially grab their dream property.
+- Seamless User Experience: With Firebase authentication, MongoDB storage, and Express.js server functionality, My project offers a complete and engaging platform for property buyers or property sellers to explore, interact with, and potentially grab their dream property.
 
 
